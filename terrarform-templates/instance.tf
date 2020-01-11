@@ -11,6 +11,9 @@ resource "aws_instance" "ansible-master-server" {
   # the public SSH key
   key_name = aws_key_pair.mykeypair.key_name
   
+  # user data
+  #user_data = data.template_cloudinit_config.cloudinit-ansible.rendered
+  
   tags  = {
     Name        = "Ansible Master Server"
     Environment = "dev"
@@ -30,6 +33,8 @@ resource "aws_instance" "host-server" {
 
   # the public SSH key
   key_name = aws_key_pair.mykeypair.key_name
+  
+
   
   tags  = {
     Name        = "Host Server"

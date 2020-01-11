@@ -20,11 +20,14 @@ resource "aws_security_group" "allow-ssh" {
    from_port = 0
    to_port = 0
    protocol = "-1"
-   security_groups = [aws_security_group.allow-ssh.id]
+   security_groups = ["sg-084836f49fa76dd04"]
   }
   
   tags = {
-    Name = "allow-ssh"
+    Name = "sg-workshop-dev"
   }
 }
 
+output "sg-workshop-dev" {
+  value = aws_security_group.allow-ssh.id
+}
